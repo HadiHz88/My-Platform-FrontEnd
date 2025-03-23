@@ -1,0 +1,199 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 211 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 211 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02", "ss03", "cv01", "cv02", "cv03";
+  }
+  
+  ::selection {
+    @apply bg-primary/20;
+  }
+  
+  .transition-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+@layer utilities {
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
+  }
+
+  /* Paint splash hover effect */
+  .splash-hover {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .splash-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: hsl(var(--primary));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform: scale(0);
+    z-index: -1;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-radius 0.3s ease;
+    opacity: 0.15;
+  }
+
+  .splash-hover:hover {
+    color: hsl(var(--primary));
+  }
+
+  .splash-hover:hover::before {
+    transform: scale(1.2);
+    border-radius: 60% 40% 40% 60% / 50% 60% 40% 50%;
+  }
+
+  /* Alternative color variations */
+  .splash-hover-red::before {
+    background: hsl(var(--destructive));
+  }
+  
+  .splash-hover-red:hover {
+    color: hsl(var(--destructive));
+  }
+  
+  .splash-hover-green::before {
+    background: hsl(134 36% 53%);
+  }
+  
+  .splash-hover-green:hover {
+    color: hsl(134 36% 53%);
+  }
+  
+  .splash-hover-purple::before {
+    background: hsl(277 75% 84%);
+  }
+  
+  .splash-hover-purple:hover {
+    color: hsl(277 75% 84%);
+  }
+  
+  /* Terminal styling */
+  .terminal-text {
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
+  }
+  
+  .terminal-prompt::before {
+    content: '$ ';
+    color: hsl(var(--primary));
+  }
+  
+  .terminal-command {
+    color: hsl(var(--primary));
+    font-weight: 500;
+  }
+  
+  .terminal-output {
+    margin-left: 1.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .terminal-blink {
+    animation: terminal-cursor 1s infinite;
+  }
+  
+  @keyframes terminal-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
