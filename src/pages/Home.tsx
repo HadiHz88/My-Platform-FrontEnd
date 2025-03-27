@@ -15,9 +15,6 @@ import { FeaturedSection } from "@/components/featured-section"
 import { CTASection } from "@/components/cta-section"
 import { motion } from "framer-motion"
 
-// Add framer-motion to your project:
-// npm install framer-motion
-
 const Home = () => {
     const [featuredProjects, setFeaturedProjects] = useState<Project[]>([])
     const [featuredCourses, setFeaturedCourses] = useState<Course[]>([])
@@ -43,7 +40,7 @@ const Home = () => {
         linkedin: "",
         email: "",
         resumeUrl: "",
-        profileImage: "/placeholder.svg",
+        profileImage: "",
     })
 
     useEffect(() => {
@@ -63,6 +60,11 @@ const Home = () => {
                 // Set education and experience
                 setEducation(response.data.educations)
                 setExperience(response.data.experiences)
+
+                setProfileData(response.data.profileInfo)
+
+
+                // TODO: Set the Icon
 
                 // Set loading to false
                 setLoading(false)
