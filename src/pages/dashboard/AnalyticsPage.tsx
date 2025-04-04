@@ -108,7 +108,7 @@ const AnalyticsPage = () => {
               <CardDescription>Detailed statistics about site visits</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="h-[300px]">
+              <div className="h-[1000px]">
                 <ChartContainer config={{ visits: { theme: { light: '#2563eb', dark: '#3b82f6' } } }}>
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={visitData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

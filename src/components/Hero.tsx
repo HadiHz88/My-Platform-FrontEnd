@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -11,23 +10,12 @@ interface HeroProps {
 const Hero = ({ className }: HeroProps) => {
   return (
     <section className={cn(
-      "relative overflow-hidden bg-background py-20 md:py-32",
+      "relative overflow-hidden py-16 md:py-24",
       className
     )}>
-      <div className="absolute inset-0 bg-grid-small-black/[0.02] -z-10" />
-      
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute h-4 w-4 rounded-full bg-primary/20 top-1/4 left-1/4 animate-ping [animation-duration:6s]" />
-        <div className="absolute h-3 w-3 rounded-full bg-primary/20 top-3/4 left-1/3 animate-ping [animation-duration:8s] [animation-delay:1s]" />
-        <div className="absolute h-5 w-5 rounded-full bg-primary/20 top-1/2 left-3/4 animate-ping [animation-duration:7s] [animation-delay:2s]" />
-        <div className="absolute h-3 w-3 rounded-full bg-primary/20 top-1/3 right-1/4 animate-ping [animation-duration:9s] [animation-delay:3s]" />
-        <div className="absolute h-4 w-4 rounded-full bg-primary/20 bottom-1/4 right-1/3 animate-ping [animation-duration:5s] [animation-delay:1.5s]" />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6 animate-fade-in">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-4 animate-fade-in">
             <div className="inline-block">
               <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground mb-4">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-primary mr-2"></span>
@@ -35,11 +23,11 @@ const Hero = ({ className }: HeroProps) => {
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance">
               Projects, Courses & Educational Resources
             </h1>
             
-            <p className="max-w-[600px] text-lg md:text-xl text-muted-foreground text-balance">
+            <p className="max-w-[500px] text-base md:text-lg text-muted-foreground text-balance">
               A curated collection of my work, university courses, and in-depth programming knowledge in one place.
             </p>
             

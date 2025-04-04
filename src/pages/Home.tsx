@@ -32,15 +32,19 @@ const Home = () => {
     const [error, setError] = useState(false)
     const [education, setEducation] = useState<any[]>([])
     const [experience, setExperience] = useState<any[]>([])
-    const [profileData, setProfileData] = useState({
+    const [profileInfo, setProfileInfo] = useState({
         name: "",
-        title: "",
-        bio: "",
-        github: "",
-        linkedin: "",
         email: "",
-        resumeUrl: "",
-        profileImage: "",
+        phone: "",
+        address: "",
+        image_url: "",
+        facebook_url: "",
+        instagram_url: "",
+        linkedin_url: "",
+        github_url: "",
+        youtube_url: "",
+        bio: "",
+        info: "",
     })
 
     useEffect(() => {
@@ -61,7 +65,7 @@ const Home = () => {
                 setEducation(response.data.educations)
                 setExperience(response.data.experiences)
 
-                setProfileData(response.data.profileInfo)
+                setProfileInfo(response.data.profileInfo)
 
 
                 // TODO: Set the Icon
@@ -90,7 +94,7 @@ const Home = () => {
                 className="py-16 bg-background"
             >
                 <div className="container mx-auto px-4 md:px-6">
-                    <ProfileSection profileImage={profileData.profileImage} loading={loading} />
+                    <ProfileSection profileInfo={profileInfo} loading={loading} />
 
                     {/* Terminal Component */}
                     <motion.div
